@@ -29,7 +29,7 @@ public class Dial extends Activity {
 	private void call(){
 		try{
 			Intent callIntent = new Intent(Intent.ACTION_CALL);
-			callIntent.setData(Uri.parse("tel:030"));
+			callIntent.setData(Uri.parse("tel:*333"));
 			startActivity(callIntent);	
 		}catch(ActivityNotFoundException e){
 			Log.e("PersistentCaller", "Call failed", e);
@@ -46,15 +46,15 @@ public class Dial extends Activity {
 	private class PhoneCallListener extends PhoneStateListener{
 		
 		private static final String TAG = "PhoneCallListener";
+		boolean hasPhoneCalled = false;
 		
 		@Override
 		public void onCallStateChanged(int state, String incomingNumber){
-			boolean hasPhoneCalled = false;
-			Log.i(TAG, "Call forwarding indicator has changed.");
+			Log.i(TAG, "Call state indicator has changed.");
 			
-			//do stuff
 			switch(state){
 			case TelephonyManager.CALL_STATE_RINGING:
+				//Needs code to deny the call, maybe not if incomingNumber == the number we are trying to reach. 
 				Log.i(TAG, "Phone is ringing. Number: " + incomingNumber);
 				break;
 				
@@ -64,17 +64,15 @@ public class Dial extends Activity {
 				break;
 				
 			case TelephonyManager.CALL_STATE_IDLE:
-				Log.i(TAG, "Phone is idle");
-				
+				Log.i(TAG, "Phone is idle "+hasPhoneCalled);
 				if(hasPhoneCalled){
+					hasPhoneCalled = false;
 					Log.i(TAG, "Restarting activity...");
 					Intent i = getBaseContext().getPackageManager()
 							.getLaunchIntentForPackage(
 								getBaseContext().getPackageName());
 						i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						startActivity(i);
-					
-					hasPhoneCalled = false;
+						startActivity(i);					
 				}
 				break;
 			}
