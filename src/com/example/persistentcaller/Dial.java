@@ -15,6 +15,7 @@ import android.widget.TextView;
 public class Dial extends Activity {
 	TextView info;
 	Context context;
+	String victim = "*333"; //just for testing
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class Dial extends Activity {
 	private void call(){
 		try{
 			Intent callIntent = new Intent(Intent.ACTION_CALL);
-			callIntent.setData(Uri.parse("tel:*333"));
+			callIntent.setData(Uri.parse("tel:"+victim));
 			startActivity(callIntent);	
 		}catch(ActivityNotFoundException e){
 			Log.e("PersistentCaller", "Call failed", e);
