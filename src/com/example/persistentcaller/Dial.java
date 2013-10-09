@@ -19,15 +19,15 @@ public class Dial extends Activity {
 	Context context;
 	String ibero = "+5252925909";
 	String reactor1 = "+5256016399";
-	String reactor2 = "+525601-6397";
+	String reactor2 = "+5256016397";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dial);
-		PhoneCallListener phoneListener = new PhoneCallListener();
-		TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+		//PhoneCallListener phoneListener = new PhoneCallListener();
+		//TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+		//telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
 		//Select number, then pass it to call()	
 		final Button ib = (Button) findViewById(R.id.Button01);
 		final Button re1 = (Button) findViewById(R.id.button2);
@@ -35,31 +35,22 @@ public class Dial extends Activity {
 		
 		 ib.setOnClickListener(new View.OnClickListener() {
              public void onClick(View v) {
-                 // Perform action on click   
-
                 call(ibero);
              }
          });
 		 
 		 re1.setOnClickListener(new View.OnClickListener() {
-             public void onClick(View v) {
-                 // Perform action on click   
+             public void onClick(View v) { 
             	 call(reactor1);
              }
          });
 		 
 		 re2.setOnClickListener(new View.OnClickListener() {
              public void onClick(View v) {
-                 // Perform action on click   
-call(reactor2);
+            	 call(reactor2);
              }
          });
-		
-		
-		
-		
-		
-		
+		 		
 	}
 	
 	private void call(String victim){

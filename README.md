@@ -1,7 +1,9 @@
 Persistent Caller
 ================
 
-Will dial a number until activity is sent to background (tested on Froyo).
+Version 1:
+	- Has shortcuts for 3 Mexico city radio stations. Will add more.
+	- Pretty basic/ugly UIX. Must improve.
 
 Inspired by http://www.mkyong.com/android/how-to-make-a-phone-call-in-android/
 
@@ -11,3 +13,4 @@ Needs:
 - Persistent notification active when the radio is opened
 - Database for radio stations
 - A better name :S
+

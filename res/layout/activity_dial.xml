@@ -21,8 +21,8 @@
         android:layout_alignRight="@+id/button2"
         android:layout_marginBottom="35dp"
         android:layout_marginRight="20dp"
-        android:text="ibero" 
-        android:onClick="call('ibero')"/>
+        android:text="ibero"
+        />
 
     <Button
         android:id="@+id/button2"
@@ -33,7 +33,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginRight="54dp"
         android:text="reactor" 
-        android:onClick="call('reactor1')"/>
+        />
 
     <Button
         android:id="@+id/button1"
@@ -44,6 +44,7 @@
         android:layout_marginLeft="65dp"
         android:layout_toRightOf="@+id/info"
         android:text="reactor2" 
-        android:onClick="call('reactor2')"/>
+        />
+
 
 </RelativeLayout>
