@@ -15,7 +15,9 @@ import android.widget.TextView;
 public class Dial extends Activity {
 	TextView info;
 	Context context;
-	String victim = "*333"; //just for testing
+	String ibero = "+5252925909";
+	String reactor1 = "+5256016399";
+	String reactor2 = "+525601-6397";	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +26,11 @@ public class Dial extends Activity {
 		PhoneCallListener phoneListener = new PhoneCallListener();
 		TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+		//Select number, then pass it to call()		
 		call();
 	}
 	
-	private void call(){
+	private void call(String victim){
 		try{
 			Intent callIntent = new Intent(Intent.ACTION_CALL);
 			callIntent.setData(Uri.parse("tel:"+victim));
