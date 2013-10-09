@@ -10,6 +10,8 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Dial extends Activity {
@@ -17,7 +19,7 @@ public class Dial extends Activity {
 	Context context;
 	String ibero = "+5252925909";
 	String reactor1 = "+5256016399";
-	String reactor2 = "+525601-6397";	
+	String reactor2 = "+525601-6397";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,38 @@ public class Dial extends Activity {
 		PhoneCallListener phoneListener = new PhoneCallListener();
 		TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-		//Select number, then pass it to call()		
-		call();
+		//Select number, then pass it to call()	
+		final Button ib = (Button) findViewById(R.id.Button01);
+		final Button re1 = (Button) findViewById(R.id.button2);
+		final Button re2 = (Button) findViewById(R.id.button1);
+		
+		 ib.setOnClickListener(new View.OnClickListener() {
+             public void onClick(View v) {
+                 // Perform action on click   
+
+                call(ibero);
+             }
+         });
+		 
+		 re1.setOnClickListener(new View.OnClickListener() {
+             public void onClick(View v) {
+                 // Perform action on click   
+            	 call(reactor1);
+             }
+         });
+		 
+		 re2.setOnClickListener(new View.OnClickListener() {
+             public void onClick(View v) {
+                 // Perform action on click   
+call(reactor2);
+             }
+         });
+		
+		
+		
+		
+		
+		
 	}
 	
 	private void call(String victim){
