@@ -17,9 +17,9 @@ import android.widget.TextView;
 public class Dial extends Activity {
 	TextView info;
 	Context context;
-	String ibero = "+5252925909";
-	String reactor1 = "+5256016399";
-	String reactor2 = "+5256016397";
+	String ibero = "52925909";
+	String reactor1 = "56016399";
+	String reactor2 = "56016397";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
